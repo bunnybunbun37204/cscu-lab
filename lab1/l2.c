@@ -15,15 +15,21 @@ Saksri, Somsak
 
 int main(int argc, char const *argv[])
 {
+    // Create Buffer to store input
     char buffer[4096];
     printf("Enter name : ");
     scanf(" %100[^\n]", buffer);
+
+    // Create Dynamic String
     char *name = (char*)malloc(strlen(buffer) + 1);
     char *firstName, *lastName;
+
+    // Copy Buffer to name
     strcpy(name, buffer);
     printf("Hello! %s \n", name);
+
+    // Split name to fitstNamr and lastName
     char *token = strtok(name, " ");
-    
     int cout = 0;
     while(token != NULL) 
     {
@@ -43,6 +49,7 @@ int main(int argc, char const *argv[])
 
     printf("%s, %s\n", lastName, firstName);
 
+    // Free memory
     free(name);
     free(firstName);
     free(lastName);
